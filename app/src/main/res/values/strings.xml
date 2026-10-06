@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">StickLab</string>
+    <string name="subtitle">Stick settings for the AYN Odin 3</string>
+
+    <string name="deadzone_title">Deadzone</string>
+    <string name="left_stick">Left stick</string>
+    <string name="right_stick">Right stick</string>
+
+    <string name="light_title">Light</string>
+    <string name="ambi_on">Turn Ambilight on</string>
+    <string name="ambi_off">Turn Ambilight off</string>
+    <string name="brightness">Brightness</string>
+    <string name="color_boost">Color intensity</string>
+    <string name="white_level">White level</string>
+    <string name="speed">Speed</string>
+    <string name="green_level">Green level</string>
+    <string name="blue_level">Blue level</string>
+    <string name="defaults">Defaults</string>
+
+    <string name="status_ready">Ready</string>
+    <string name="status_saved">Saved</string>
+    <string name="status_error">Error: Odin service not available</string>
+    <string name="status_read_failed">Note: current value could not be read</string>
+    <string name="status_ambi_running">Ambilight is running</string>
+    <string name="status_ambi_off">Ambilight is off</string>
+    <string name="status_denied">Screen capture was not allowed</string>
+    <string name="notif_text">Ambilight is running</string>
+    <string name="skip_prompt">Don\'t ask again</string>
+    <string name="skip_prompt_hint">Skips the Android screen capture prompt when you turn Ambilight on.</string>
+    <string name="intro_title">Welcome to StickLab</string>
+    <string name="intro_text">StickLab adjusts the stick deadzone and lets the stick LEDs follow the colors on screen.\n\n• Works only on the AYN Odin 3. It uses a system service that is built into the device, no root needed.\n• For Ambilight, Android gives the app a tiny live copy of the screen (96×54 pixels). Nothing is saved or sent anywhere.\n• Use at your own risk.</string>
+    <string name="unsupported_title">Device not supported</string>
+    <string name="unsupported_text">StickLab needs a system service of the AYN Odin 3 that was not found on this device. The settings will have no effect here.</string>
+</resources>

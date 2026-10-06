@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Regenbogenring aus acht Farbsegmenten -->
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M76.986,53.197 A23,23 0 0 1 69.686,70.821"
+        android:strokeColor="#FF3B3B"
+        android:strokeWidth="8" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M70.263,70.263 A23,23 0 0 1 53.197,76.986"
+        android:strokeColor="#FF8A00"
+        android:strokeWidth="8" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M54,77 A23,23 0 0 1 37.179,69.686"
+        android:strokeColor="#FFE100"
+        android:strokeWidth="8" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M37.737,70.263 A23,23 0 0 1 31.014,53.197"
+        android:strokeColor="#7CFF00"
+        android:strokeWidth="8" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M31,54 A23,23 0 0 1 38.314,37.179"
+        android:strokeColor="#00E5A8"
+        android:strokeWidth="8" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M37.737,37.737 A23,23 0 0 1 54.803,31.014"
+        android:strokeColor="#00B8FF"
+        android:strokeWidth="8" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M54,31 A23,23 0 0 1 70.821,38.314"
+        android:strokeColor="#6A5CFF"
+        android:strokeWidth="8" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M70.263,37.737 A23,23 0 0 1 77,54"
+        android:strokeColor="#FF3DA5"
+        android:strokeWidth="8" />
+
+    <!-- Stick, leicht aus der Mitte verschoben -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M48.6,49.4a10,10 0 1,0 20,0a10,10 0 1,0 -20,0" />
+    <path
+        android:fillColor="#D9D9E8"
+        android:pathData="M55.6,48.2a4.2,4.2 0 1,0 8.4,0a4.2,4.2 0 1,0 -8.4,0" />
+</vector>

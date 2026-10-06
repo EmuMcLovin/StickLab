@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">StickLab</string>
+    <string name="subtitle">Stick-Einstellungen für den AYN Odin 3</string>
+
+    <string name="deadzone_title">Deadzone</string>
+    <string name="left_stick">Linker Stick</string>
+    <string name="right_stick">Rechter Stick</string>
+
+    <string name="light_title">Licht</string>
+    <string name="ambi_on">Ambilight einschalten</string>
+    <string name="ambi_off">Ambilight ausschalten</string>
+    <string name="brightness">Helligkeit</string>
+    <string name="color_boost">Farbkraft</string>
+    <string name="white_level">Weiß-Anteil</string>
+    <string name="speed">Tempo</string>
+    <string name="green_level">Grün-Anteil</string>
+    <string name="blue_level">Blau-Anteil</string>
+    <string name="defaults">Standardwerte</string>
+
+    <string name="status_ready">Bereit</string>
+    <string name="status_saved">Gespeichert</string>
+    <string name="status_error">Fehler: Odin-Dienst nicht verfügbar</string>
+    <string name="status_read_failed">Hinweis: aktueller Wert konnte nicht gelesen werden</string>
+    <string name="status_ambi_running">Ambilight läuft</string>
+    <string name="status_ambi_off">Ambilight ist aus</string>
+    <string name="status_denied">Bildschirmaufnahme wurde nicht erlaubt</string>
+    <string name="notif_text">Ambilight läuft</string>
+    <string name="skip_prompt">Nicht mehr fragen</string>
+    <string name="skip_prompt_hint">Überspringt die Android-Abfrage zur Bildschirmaufnahme beim Einschalten des Ambilights.</string>
+    <string name="intro_title">Willkommen bei StickLab</string>
+    <string name="intro_text">StickLab stellt die Deadzone der Sticks ein und lässt die Stick-LEDs den Farben auf dem Bildschirm folgen.\n\n• Funktioniert nur auf dem AYN Odin 3. Die App nutzt einen Systemdienst, der im Gerät eingebaut ist, Root ist nicht nötig.\n• Für das Ambilight liefert Android der App eine winzige Live-Kopie des Bildschirms (96×54 Bildpunkte). Nichts wird gespeichert oder verschickt.\n• Nutzung auf eigene Gefahr.</string>
+    <string name="unsupported_title">Gerät wird nicht unterstützt</string>
+    <string name="unsupported_text">StickLab braucht einen Systemdienst des AYN Odin 3, der auf diesem Gerät nicht gefunden wurde. Die Einstellungen haben hier keine Wirkung.</string>
+</resources>
