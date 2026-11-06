@@ -33,8 +33,6 @@ class AmbilightService : Service() {
         @Volatile
         var running = false
 
-        private const val KEY = "joystick_led_light_picker_color"
-
         // Größe des verkleinerten Bildes, das Android liefert
         private const val W = 96
         private const val H = 54
@@ -79,7 +77,7 @@ class AmbilightService : Service() {
         }
 
         original = try {
-            Settings.System.getString(contentResolver, KEY)
+            Settings.System.getString(contentResolver, OdinService.LED_COLOR_KEY)
         } catch (t: Throwable) {
             null
         }
@@ -228,9 +226,13 @@ class AmbilightService : Service() {
             for (i in 0 until 6) {
                 if (abs(current[i].roundToInt() - sent[i]) >= threshold) changed = true
             }
-            if (changed) {
+            if (LightFlash.isRunning) {
+                // Lichtblitz beim Profilwechsel (5c): so lange nichts schicken (sonst flackert es, R123).
+                // "Noch nichts geschickt" merken, damit das nächste Bild nach dem Blitz die Farbe wieder schickt
+                sent.fill(-1)
+            } else if (changed) {
                 for (i in 0 until 6) sent[i] = current[i].roundToInt()
-                OdinService.run("settings put system $KEY '${hex(0)},${hex(3)}'")
+                OdinService.putLedColors("${hex(0)},${hex(3)}")
             }
 
             if (moving && running) {
@@ -273,10 +275,10 @@ class AmbilightService : Service() {
         } catch (e: Throwable) {
         }
         h?.removeCallbacksAndMessages(null)
-        // Zum Schluss die alte Farbe wiederherstellen
+        // Zum Schluss die alte Farbe wiederherstellen (nur, wenn sie im erwarteten Format vorlag)
         h?.post {
             if (restore != null) {
-                OdinService.run("settings put system $KEY '$restore'")
+                OdinService.putLedColors(restore)
             }
             try {
                 r?.close()

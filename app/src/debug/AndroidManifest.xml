@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Damit die Debug-Version den Dienst von com.odin.mapping sehen darf (keine Berechtigung) -->
+    <queries>
+        <package android:name="com.odin.mapping" />
+    </queries>
+    <application>
+        <!-- Wegwerf-Testbildschirm für Test A, nur in der Debug-Version. Start per ADB -->
+        <activity
+            android:name=".StickTestActivity"
+            android:exported="true" />
+        <!-- Wegwerf-Testbildschirm für A26: liest Werte bei com.odin.mapping, setzt nichts -->
+        <activity
+            android:name=".MappingProbeActivity"
+            android:exported="true" />
+        <!-- Wegwerf-Testbildschirm für A26/A4/E10: setzt einen festen Testfall live, beim Verlassen alter Wert zurück -->
+        <activity
+            android:name=".MappingSetTestActivity"
+            android:exported="true" />
+        <!-- Wegwerf-Testbildschirm für Phase 3 "Prozent App = Firmware?": Deadzone-Treppe nur live, Rückweg per Merker.
+             Starten darf nur, wer das Recht DUMP hat (ADB-Shell, System), normale Apps nicht -->
+        <!-- configChanges: Android baute den Bildschirm sonst bei Änderung 480 (Tastatur/Navigation/Ausrichtung,
+             19.10.2026 beobachtet) neu auf – die Treppe darf dabei nicht abbrechen oder neu beginnen -->
+        <activity
+            android:name=".DeadzoneSweepActivity"
+            android:configChanges="keyboard|keyboardHidden|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode"
+            android:exported="true"
+            android:permission="android.permission.DUMP" />
+        <!-- Wegwerf-Testbildschirm für Test C: Schwarze Liste lesen, festen Testnamen eintragen/entfernen -->
+        <activity
+            android:name=".BlackListTestActivity"
+            android:exported="true" />
+        <!-- Wegwerf-Testbildschirm für Test C Stufe 2: schickt nur fest eingetragene Befehle ("sleep 3", uinput-Testgerät) an PServerBinder, misst die Dauer -->
+        <activity
+            android:name=".PServerSleepTestActivity"
+            android:exported="true" />
+        <!-- Wegwerf-Testbildschirm für Test C Stufe 4: zeigt, von welchem Controller (Gerät, Spielernummer) Eingaben ankommen. Liest nur mit -->
+        <activity
+            android:name=".ControllerTestActivity"
+            android:exported="true" />
+        <!-- Wegwerf-Empfänger für Test C Stufe 4.5c: schickt einen festen Fall an PServerBinder, ohne Bildschirm.
+             Auslösen darf nur, wer das Recht DUMP hat (ADB-Shell, System), normale Apps nicht -->
+        <receiver
+            android:name=".PServerCaseReceiver"
+            android:exported="true"
+            android:permission="android.permission.DUMP" />
+        <!-- Wegwerf-Bildschirm für Test C Stufe 5: Start/Stopp des virtuellen Controllers per Touch-Knopf.
+             Beim Öffnen wird nichts geschickt, nur auf Knopfdruck -->
+        <activity
+            android:name=".MirrorControlActivity"
+            android:exported="true" />
+    </application>
+</manifest>

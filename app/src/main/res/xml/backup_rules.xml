@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?><!--
-   Sample backup rules file; uncomment and customize as necessary.
-   See https://developer.android.com/guide/topics/data/autobackup
-   for details.
-   Note: This file is ignored for devices older than API 31
-   See https://developer.android.com/about/versions/12/backup-restore
+   Android-Sicherung bis Android 11 (data_extraction_rules.xml gilt ab Android 12).
+   Das gemerkte Original bleibt draußen: Es gehört zu genau einer Installation auf genau einem Gerät. Käme es
+   aus einer Sicherung zurück, würde "Restore everything" fremde Werte setzen (OFFENE_FRAGEN 2).
+   Dateiname = AppStorage.AppFile.ORIGINAL_VALUES, geprüft von BackupRulesTest. Alles andere darf mit.
 -->
 <full-backup-content>
-    <!--
-   <include domain="sharedpref" path="."/>
-   <exclude domain="sharedpref" path="device.xml"/>
--->
+    <exclude domain="sharedpref" path="original_values.xml" />
 </full-backup-content>

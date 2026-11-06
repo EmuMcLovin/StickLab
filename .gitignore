@@ -13,3 +13,17 @@
 .externalNativeBuild
 .cxx
 local.properties
+
+# Fertige Release-Dateien (APK, mapping.txt)
+/app/release/
+
+# Einstellungen von Android Studio auf diesem Rechner
+/.idea/
+
+# Persönliche Einstellungen von Claude Code
+/.claude/settings.local.json
+
+# Signaturschlüssel, als Sicherheitsnetz
+*.jks
+*.keystore
+sticklab-key*

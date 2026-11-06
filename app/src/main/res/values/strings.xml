@@ -1,14 +1,210 @@
 <resources>
     <string name="app_name">StickLab</string>
-    <string name="subtitle">Stick settings for the AYN Odin 3</string>
+
+    <string name="tab_sticks">Sticks</string>
+    <string name="tab_buttons">Buttons</string>
+    <string name="tab_lights">Lights</string>
+    <string name="tab_profiles">Profiles</string>
 
     <string name="deadzone_title">Deadzone</string>
     <string name="left_stick">Left stick</string>
     <string name="right_stick">Right stick</string>
+    <string name="deadzone_now">Deadzone now: Left %1$s · Right %2$s</string>
+    <string name="deadzone_percent">%.1f %%</string>
+    <string name="deadzone_unknown" translatable="false">–</string>
+    <string name="apply">Apply</string>
+    <string name="applied">Applied</string>
+    <string name="restore_original">Restore original</string>
+    <string name="restore_title">Restore original deadzone?</string>
+    <string name="restore_values">Left %1$s · Right %2$s</string>
+    <string name="restore_capped" formatted="false">Original above 20 % – will be set to 20 %.</string>
+
+    <string name="setting_sensitivity">Sensitivity</string>
+    <string name="setting_trigger">Trigger</string>
+    <string name="setting_curve">Curve</string>
+    <string name="curve_axis_output">Output</string>
+    <string name="curve_axis_stick">Stick</string>
+    <string name="curve_axis_trigger">Trigger</string>
+    <string name="curve_trigger_hint">Less travel until full output, e.g. for faster tap fire. Games that read the trigger as a plain button are not affected.</string>
+    <string name="curve_trigger_l2">L2: full output from</string>
+    <string name="curve_trigger_r2">R2: full output from</string>
+    <string name="curve_outer_label">Full output from</string>
+    <string name="curve_anti_label">Anti-deadzone</string>
+    <string name="curve_value_off">Off</string>
+    <string name="curve_mode">Curve mode</string>
+    <string name="curve_mode_notification_title">StickLab: Curve mode</string>
+    <string name="curve_mode_stop">Stop</string>
+    <string name="curve_mode_starting">Starting …</string>
+    <string name="curve_mode_running_since">Running since %1$s</string>
+    <string name="curve_mode_intro_title">Curve mode (experimental)</string>
+    <string name="curve_mode_intro_text">• Starts a small helper that runs as root through the built-in Odin service and passes your controller on with your curves.\n• Turn it on before the game. Switching during a game can make the game lose the controller.\n• StickLab adds its virtual controller to a list in the AYN system, otherwise AYN’s service would take it over. “Restore everything” removes it.\n• To stop: this switch, Stop in the notification, or restart your Odin. It never starts by itself.</string>
+    <string name="curve_mode_working">Curve mode …</string>
+    <string name="curve_mode_off_hint">Curve mode off: only saved. Turn on before the game.</string>
+    <string name="curve_mode_running_hint">Active. In the game, choose a linear curve.</string>
+    <string name="curve_mode_firmware">Firmware not tested: Curve mode stays off.</string>
+    <string name="status_curve_mode_working">Switching Curve mode …</string>
+    <string name="status_curve_mode_on">Curve mode on – curves work now</string>
+    <string name="status_curve_mode_off">Curve mode off – your real controller is back</string>
+    <string name="status_curve_mode_failed">Curve mode did not change – wait a few seconds and try again</string>
+    <string name="status_autoset_curve_mode">Turn Curve mode off first, it would change the measurement</string>
+    <string name="profiles_curve_mode_off">" · Curve mode off: curves have no effect"</string>
+    <string name="tile_curve_mode_off">Curves off</string>
+    <string name="curve_edit">Edit curve</string>
+    <string name="curve_point_value">Stick %1$.0f %% → Output %2$.0f %%</string>
+    <string name="curve_editor_hint">Drag a point with your finger. Controller: left/right picks one, press to grab it.</string>
+    <string name="curve_editor_grabbed">Grabbed: the D-pad moves the point. Press again to let go.</string>
+    <string name="curve_double_hint">In the game, choose a linear curve, otherwise both curves add up.</string>
+    <string name="curve_point_add">+ Point</string>
+    <string name="curve_point_remove">− Point</string>
+    <string name="curve_editor_done">Done</string>
+    <string name="status_curves_saved">Curves saved – your Odin is unchanged</string>
+    <string name="status_curves_failed">Curves could not be saved</string>
+    <string name="sensitivity_now">Sensitivity now: Left %1$s · Right %2$s</string>
+    <string name="trigger_now">Trigger now: L2 %1$s · R2 %2$s</string>
+    <string name="sensitivity_value" translatable="false">%.2f</string>
+    <string name="trigger_percent" translatable="false">%.0f %%</string>
+    <string name="sensitivity_restore_title">Restore original sensitivity?</string>
+    <string name="sensitivity_restore_values">Left %1$s · Right %2$s (as before StickLab)\n\nNow: Left %3$s · Right %4$s. Other values are not changed.</string>
+    <string name="trigger_restore_title">Restore original trigger deadzone?</string>
+    <string name="trigger_restore_values">L2 %1$s · R2 %2$s (as before StickLab)\n\nNow: L2 %3$s · R2 %4$s. Other values are not changed.</string>
+
+    <string name="live_title">Live</string>
+    <string name="live_subtitle">What games see right now</string>
+    <string name="live_left">Left</string>
+    <string name="live_right">Right</string>
+    <string name="live_stick_value">%1$s %2$.1f %%</string>
+    <string name="live_stick_unknown">%1$s –</string>
+    <string name="live_exact_zero">Exactly 0</string>
+    <string name="live_not_zero">Not 0</string>
+    <string name="live_move_hint">Move once</string>
+    <string name="live_l2" translatable="false">L2</string>
+    <string name="live_r2" translatable="false">R2</string>
+    <string name="live_trigger_value">%.0f %%</string>
+    <string name="autoset_start">Auto-Set</string>
+    <string name="autoset_title">Auto-Set</string>
+    <string name="autoset_instruction">Push both sticks to the edge in all 8 directions and let go after each one – a field turns green only then</string>
+    <string name="autoset_fields">Fields %1$d/%2$d</string>
+    <string name="autoset_stick_fields">%1$s · %2$d/%3$d</string>
+    <string name="autoset_rest">Rest %1$.1f %% · %2$d×</string>
+    <string name="autoset_rest_none">No release seen</string>
+    <string name="autoset_stop">Stop · %1$d s</string>
+    <string name="autoset_again">Again</string>
+    <string name="autoset_done">Done</string>
+    <string name="autoset_result_subtitle">Suggestions only – nothing was changed</string>
+    <string name="autoset_deadzone_label">Deadzone</string>
+    <string name="autoset_deadzone_value">%1$s %2$s · now %3$s</string>
+    <string name="autoset_deadzone_none">%1$s – · no release seen</string>
+    <string name="autoset_smaller_hint">Smaller than now – check run first</string>
+    <string name="autoset_outer_label">Outer deadzone</string>
+    <string name="autoset_outer_value">%1$s from %2$.1f %%</string>
+    <string name="autoset_outer_none">%1$s – · not all 8 fields</string>
+    <string name="autoset_outer_not_needed">%1$s not needed</string>
+    <string name="autoset_move_hint">Tip: move both sticks once briefly</string>
+    <string name="autoset_rest_zero">Rest exactly 0 · %1$d×</string>
+    <string name="autoset_check">Check</string>
+    <string name="autoset_check_title">Check run</string>
+    <string name="autoset_check_instruction">Same again with the suggestion: all 8 directions, let go after each one</string>
+    <string name="autoset_check_testing">Testing Left %1$s · Right %2$s</string>
+    <string name="autoset_check_legend">✓ = exactly 0 after every release</string>
+    <string name="autoset_check_again_hint">Press Check again</string>
+    <string name="autoset_exhausted_hint">No fitting value – that side stays as it is</string>
+    <string name="autoset_deadzone_passed">%1$s %2$s ✓ · now %3$s</string>
+    <string name="autoset_deadzone_raised">%1$s %2$s ✗ → %3$s</string>
+    <string name="autoset_deadzone_exhausted">%1$s %2$s ✗ · no fitting value</string>
+    <string name="autoset_deadzone_incomplete">%1$s %2$s · not all 8 fields</string>
+    <string name="autoset_apply_title">Save new deadzone?</string>
+    <string name="autoset_apply_change">%1$s %2$s → %3$s</string>
+    <string name="autoset_apply_stays">%1$s stays %2$s</string>
+    <string name="autoset_apply_saved">Saved – stays after a restart.</string>
+    <string name="autoset_apply_restore">Restore original brings back Left %1$s · Right %2$s.</string>
+
+    <string name="buttons_picture_title">Your Odin</string>
+    <string name="buttons_layout">Layout: %1$s</string>
+    <string name="layout_xbox">Xbox</string>
+    <string name="layout_odin">Odin</string>
+    <string name="layout_unknown">unknown</string>
+    <string name="buttons_back_side">back side</string>
+    <string name="buttons_legend_pressed">pressed</string>
+    <string name="buttons_title" translatable="false">M1 / M2</string>
+    <string name="button_m1" translatable="false">M1</string>
+    <string name="button_m2" translatable="false">M2</string>
+    <string name="buttons_now">Now: M1 → %1$s · M2 → %2$s</string>
+    <string name="buttons_hint_touch">Touch only here – buttons just light up. Names as printed on your Odin.</string>
+    <string name="buttons_hint_touch_unknown">Touch only here – buttons just light up. Layout unknown – names as in the Odin menu.</string>
+    <string name="buttons_picker_title">Choose for %1$s</string>
+    <string name="target_xbox_short">Xbox %1$s</string>
+    <string name="target_games_see">games see %1$s</string>
+    <string name="target_games_see_xbox">games see Xbox %1$s</string>
+    <string name="target_default">Odin default (code 98)</string>
+    <string name="target_none">no key</string>
+    <string name="buttons_restore_title">Restore original M1/M2?</string>
+    <string name="buttons_restore_values">M1 → %1$s · M2 → %2$s\n\nThe deadzone is not changed.</string>
+
+    <string name="profiles_none_yet">No profiles yet. Tap “+ New”, then “Save current”.</string>
+    <string name="profiles_none_active">No profile active</string>
+    <string name="profiles_active">Active: %1$s</string>
+    <string name="profiles_active_changed">Active: %1$s – values on your Odin changed since</string>
+    <string name="profile_bar_none_yet">No profile yet</string>
+    <string name="profile_save_to">Save to profile</string>
+    <string name="profile_help_button" translatable="false">?</string>
+    <string name="profiles_help_title">How profiles work</string>
+    <string name="profiles_help_text">1. A profile keeps your settings: deadzone, trigger, sensitivity, M1/M2 and curves.\n2. Adjust them in Sticks and Buttons – changes work on your Odin right away.\n3. Happy with it? Tap “Save to profile” at the top (or “Save current” in Profiles).\n4. The top line shows your profile – “changed” means your Odin no longer matches it.\n5. Up to 4 profiles, e.g. one per kind of game. “Use” switches to one, “Edit” also opens Sticks.\nTap “?” at the top to see this again.</string>
+    <string name="profile_standard_name">Standard</string>
+    <string name="profile_restore_everything">Restore everything</string>
+    <string name="profile_use">Use</string>
+    <string name="profile_used">In use</string>
+    <string name="profile_edit">Edit</string>
+    <string name="profile_save_current">Save current</string>
+    <string name="profile_saved">Saved</string>
+    <string name="profile_rename">Rename</string>
+    <string name="profile_color">Color</string>
+    <string name="profile_copy">Copy</string>
+    <string name="profile_delete">Delete</string>
+    <string name="profile_new">New</string>
+    <string name="profile_new_hint">Save current\nsaves the values\nnow on your Odin</string>
+    <string name="profile_badge_active">● active</string>
+    <string name="profile_badge_changed">● changed</string>
+    <string name="profile_label_deadzone">Deadzone</string>
+    <string name="profile_label_trigger" translatable="false">L2 / R2</string>
+    <string name="profile_label_sensitivity">Sens</string>
+    <string name="profile_label_curve">Curve</string>
+    <string name="profile_label_buttons">Keys</string>
+    <string name="profile_deadzone_pair" translatable="false">%1$.1f / %2$.1f %%</string>
+    <string name="profile_trigger_pair" translatable="false">%1$.0f / %2$.0f %%</string>
+    <string name="profile_sensitivity_pair" translatable="false">%1$.2f / %2$.2f</string>
+    <string name="profile_text_pair" translatable="false">%1$s / %2$s</string>
+    <string name="profile_buttons" translatable="false">M1 %1$s · M2 %2$s</string>
+    <string name="curve_linear">Linear</string>
+    <string name="curve_precision">Precision</string>
+    <string name="curve_fast">Fast</string>
+    <string name="curve_s_curve">S-Curve</string>
+    <string name="curve_shooter">Shooter</string>
+    <string name="curve_custom">Custom</string>
+    <string name="profile_default_name">Profile %1$d</string>
+    <string name="profile_copy_name">%1$s copy</string>
+    <string name="profile_replace_title">Replace values of “%1$s”?</string>
+    <string name="profile_replace_text">The profile gets the values now on your Odin. Name and color stay.</string>
+    <string name="profile_replace_row">%1$s: %2$s → %3$s</string>
+    <string name="profile_delete_title">Delete “%1$s”?</string>
+    <string name="profile_delete_text">Only the profile is deleted. The values on your Odin stay as they are.</string>
+    <string name="profile_rename_title">Rename profile</string>
+    <string name="profile_color_title">Profile color</string>
+    <string name="profile_close">Close</string>
+    <string name="profile_restore_all_title">Restore everything?</string>
+    <string name="profile_restore_all_text">Sets everything a profile changes back to the values from before StickLab (now → before). The light stays as it is. Afterwards no profile is active.</string>
+    <string name="profile_restore_all_unknown">not known – stays</string>
+    <string name="profile_restore_all_capped">Values outside StickLab’s range are set to the nearest allowed value.</string>
+    <string name="color_pink">Pink</string>
+    <string name="color_violet">Violet</string>
+    <string name="color_blue">Blue</string>
+    <string name="color_turquoise">Turquoise</string>
+    <string name="color_green">Green</string>
+    <string name="color_yellow">Yellow</string>
+    <string name="color_orange">Orange</string>
+    <string name="color_red">Red</string>
 
     <string name="light_title">Light</string>
-    <string name="ambi_on">Turn Ambilight on</string>
-    <string name="ambi_off">Turn Ambilight off</string>
+    <string name="ambilight">Ambilight</string>
     <string name="brightness">Brightness</string>
     <string name="color_boost">Color intensity</string>
     <string name="white_level">White level</string>
@@ -18,17 +214,93 @@
     <string name="defaults">Defaults</string>
 
     <string name="status_ready">Ready</string>
-    <string name="status_saved">Saved</string>
+    <string name="status_active_now">Saved – active now</string>
+    <string name="status_after_restart">Saved – takes effect after a restart</string>
     <string name="status_error">Error: Odin service not available</string>
     <string name="status_read_failed">Note: current value could not be read</string>
+    <string name="ambilight_light_off_title">Joystick light is off</string>
+    <string name="ambilight_light_off_text">The stick LEDs stay dark until you turn it on: swipe down from the top and tap “Joystick light”. You can also do that while Ambilight is running.</string>
     <string name="status_ambi_running">Ambilight is running</string>
     <string name="status_ambi_off">Ambilight is off</string>
     <string name="status_denied">Screen capture was not allowed</string>
+    <string name="status_drift_running">Measuring – deadzone is 0 for now</string>
+    <string name="status_drift_done">Measured – deadzone restored</string>
+    <string name="status_drift_failed">Measurement could not start</string>
+    <string name="status_drift_restore_failed">Deadzone not restored – use Restore original or restart</string>
+    <string name="status_drift_recovered">Deadzone of an interrupted measurement restored</string>
+    <string name="status_check_running">Check run – suggested deadzone for now</string>
+    <string name="status_check_done">Checked – deadzone restored</string>
+    <string name="status_not_applied">Not applied yet</string>
+    <string name="status_buttons_saved">M1/M2 saved</string>
+    <string name="status_buttons_failed">M1/M2 could not be saved</string>
+    <string name="status_profile_saved">Saved to the profile – it is now active</string>
+    <string name="status_profile_renamed">Profile renamed</string>
+    <string name="status_profile_color">Profile color changed</string>
+    <string name="status_profile_copied">Profile copied</string>
+    <string name="status_profile_deleted">Profile deleted – your Odin is unchanged</string>
+    <string name="status_profile_used">Profile in use – all values set on your Odin</string>
+    <string name="status_profile_restored_all">Everything back as before StickLab – no profile active</string>
+    <string name="status_profile_after_restart">Set – some values take effect after a restart</string>
+    <string name="status_profile_failed_deadzone">Not everything set – the deadzone failed (see Sticks)</string>
+    <string name="status_profile_failed_trigger">Not everything set – the trigger deadzone failed (see Sticks)</string>
+    <string name="status_profile_failed_sensitivity">Not everything set – the sensitivity failed (see Sticks)</string>
+    <string name="status_profile_failed_buttons">Not everything set – M1/M2 failed (see Buttons)</string>
+    <string name="status_profile_apply_autoset_running">Nothing set – stop the Auto-Set first</string>
+    <string name="status_profile_restore_unknown">Nothing restored – the values from before StickLab are not known</string>
+    <string name="status_profile_missing_deadzone">Not saved – the deadzone could not be read</string>
+    <string name="status_profile_missing_sensitivity">Not saved – the sensitivity could not be read</string>
+    <string name="status_profile_missing_trigger">Not saved – the trigger deadzone could not be read</string>
+    <string name="status_profile_missing_buttons">Not saved – M1/M2 could not be read</string>
+    <string name="status_profile_autoset_running">Not saved – stop the Auto-Set first</string>
+    <string name="status_profile_store_failed">Profile could not be saved</string>
+    <string name="status_profile_standard_created">Profile “Standard” created from the values on your Odin</string>
     <string name="notif_text">Ambilight is running</string>
     <string name="skip_prompt">Don\'t ask again</string>
     <string name="skip_prompt_hint">Skips the Android screen capture prompt when you turn Ambilight on.</string>
     <string name="intro_title">Welcome to StickLab</string>
-    <string name="intro_text">StickLab adjusts the stick deadzone and lets the stick LEDs follow the colors on screen.\n\n• Works only on the AYN Odin 3. It uses a system service that is built into the device, no root needed.\n• For Ambilight, Android gives the app a tiny live copy of the screen (96×54 pixels). Nothing is saved or sent anywhere.\n• Use at your own risk.</string>
+    <string name="intro_text">StickLab adjusts your sticks and triggers, sets up M1/M2, keeps it all in up to 4 profiles and lets the stick LEDs follow the colors on screen.\n\n• Works only on the AYN Odin 3. It uses a system service that is built into the device, no root needed.\n• For Ambilight, Android gives the app a tiny live copy of the screen (96×54 pixels). Nothing is saved or sent anywhere.\n• Use at your own risk.</string>
     <string name="unsupported_title">Device not supported</string>
-    <string name="unsupported_text">StickLab needs a system service of the AYN Odin 3 that was not found on this device. The settings will have no effect here.</string>
+    <string name="unsupported_text">StickLab only works on the AYN Odin 3, and this device was not recognized as one. To be safe, StickLab sends nothing to it, so the settings have no effect here.</string>
+
+    <!-- Kachel in den Schnelleinstellungen (Phase 5d) -->
+    <string name="tile_label">StickLab profile</string>
+    <string name="tile_subtitle">StickLab</string>
+    <string name="tile_changed">changed</string>
+    <string name="tile_autoset_running">Auto-Set running</string>
+    <string name="tile_no_profile_active">No profile active</string>
+    <string name="tile_no_profiles">No profiles yet</string>
+    <string name="tile_no_connection">Not set – try again</string>
+    <string name="tile_not_all_set">Not all values set</string>
+
+    <!-- Reiter Settings (Phase 5d-2, Entwurf SETTINGS_ENTWURF.html) -->
+    <string name="tab_settings">Settings</string>
+    <string name="settings_background_title">Background</string>
+    <string name="background_neon">Neon</string>
+    <string name="background_ocean">Ocean</string>
+    <string name="background_ember">Ember</string>
+    <string name="background_graphite">Graphite</string>
+    <string name="settings_tile_title">Quick Settings tile</string>
+    <string name="settings_tile_subtitle">Switch profiles without opening StickLab</string>
+    <string name="settings_tile_tap_label">Tap</string>
+    <string name="settings_tile_tap">Next saved profile – all values, short light flash</string>
+    <string name="settings_tile_long_label">Long press</string>
+    <string name="settings_tile_long">Opens StickLab</string>
+    <string name="settings_tile_changed_label">changed</string>
+    <string name="settings_tile_changed">Values not saved yet – a tap replaces them. Use “Save to profile” first</string>
+    <string name="settings_tile_added">The tile is in your Quick Settings</string>
+    <string name="settings_tile_not_added">Not in your Quick Settings yet</string>
+    <string name="settings_tile_add">Add tile</string>
+    <string name="settings_tile_added_button">Added</string>
+    <string name="settings_hand_title">Add or move by hand</string>
+    <string name="settings_hand_step1">Swipe down twice from the top</string>
+    <string name="settings_hand_step2">Tap the pencil</string>
+    <string name="settings_hand_step3">Drag “%1$s” to where you want it</string>
+    <string name="settings_hand_hint">Remove it the same way.</string>
+    <string name="settings_device_known">%1$s, firmware %2$s: all functions</string>
+    <string name="settings_device_new_firmware">%1$s, firmware %2$s: not tested yet, the virtual controller stays off</string>
+    <string name="settings_device_unknown">%1$s: not supported, StickLab sends nothing</string>
+    <string name="status_tile_added">Tile added to Quick Settings</string>
+    <string name="status_tile_already">The tile is already in Quick Settings</string>
+    <string name="status_tile_not_added">Tile not added</string>
+    <string name="status_tile_add_failed">Android could not add the tile – please add it by hand</string>
 </resources>

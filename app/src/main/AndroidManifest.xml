@@ -3,6 +3,15 @@
     xmlns:tools="http://schemas.android.com/tools">
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PROJECTION" />
+    <!-- Curve mode (Phase 6e, Besitzer 05.11.2026): Vordergrund-Dienst Typ specialUse (ohne Dialog), damit Android die App im Spiel
+         nicht wegräumt, und Benachrichtigung mit Stopp (Android fragt einmal, beim ersten Einschalten) -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <!-- Live-Weg (OdinMapping): ohne diesen Eintrag sieht die App den Dienst von com.odin.mapping nicht.
+         Keine Berechtigung, kein Dialog (Besitzer 15.10.2026) -->
+    <queries>
+        <package android:name="com.odin.mapping" />
+    </queries>
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -12,16 +21,45 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.StickLab">
+        <!-- Nur quer (Besitzer 25.10.2026): hochkant war der Bildschirm unbrauchbar gequetscht. sensorLandscape
+             erlaubt beide Querlagen (auch umgedreht) und baut die App beim Drehen nie in Hochkant neu auf -->
         <activity
             android:name=".MainActivity"
             android:exported="true"
+            android:screenOrientation="sensorLandscape"
             android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            <!-- Langes Drücken auf die StickLab-Kachel öffnet die App (Phase 5d, Wunsch Besitzer 27.10.2026) -->
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE_PREFERENCES" />
+            </intent-filter>
         </activity>
+        <!-- Kachel in den Schnelleinstellungen (Phase 5d, Entscheidung K1 vom 27.10.2026). exported, aber nur Android
+             selbst darf sie ansprechen (BIND_QUICK_SETTINGS_TILE). Keine Berechtigung für den Nutzer -->
+        <service
+            android:name=".ProfileTileService"
+            android:exported="true"
+            android:icon="@drawable/ic_tile_profiles"
+            android:label="@string/tile_label"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE" />
+            </intent-filter>
+        </service>
+        <!-- Hält die App am Leben, solange der Curve mode läuft, Benachrichtigung mit Stopp.
+             Nicht von außen startbar, Start nur über den Schalter Curve mode -->
+        <service
+            android:name=".MirrorService"
+            android:exported="false"
+            android:foregroundServiceType="specialUse">
+            <property
+                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+                android:value="Keeps the user-started virtual game controller (input remapping for the built-in sticks) running while a game is in the foreground." />
+        </service>
         <service
             android:name=".AmbilightService"
             android:exported="false"
